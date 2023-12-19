@@ -6,6 +6,14 @@ public class Word {
 	private String description;
 	
 	
+	
+	public Word(String word, String translate, String description) {
+		super();
+		this.word = word;
+		this.translate = translate;
+		this.description = description;
+	}
+
 	public String getTranslate() {
 		return translate;
 	}
