@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -140,7 +141,15 @@ public class JFAdd extends JFrame implements ActionListener{
 			main.setVisible(true);
 			this.setVisible(false);
 		} else if (e.getSource() == btnSave) {
-			hndl.addWord(new Word(txtWord.getText(),txtTranslate.getText(),txtWord.getText()));
+			 
+			if(txtWord.getText().equals("") || txtTranslate.getText().equals("") || txtDescription.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Asegurese de llenar todos los campos.");
+			} else if(hndl.repeteadWord(txtWord.getText())) {
+				JOptionPane.showMessageDialog(null, "La palabra que ingresó ya existe.");
+			} else{
+				hndl.addWord(new Word(txtWord.getText().toUpperCase(),txtTranslate.getText(),txtDescription.getText()));
+				JOptionPane.showMessageDialog(null, "Agregado con éxito.");
+			}
 		}
 		
 	}

@@ -483,6 +483,15 @@ public class Handling {
 		return false;
 	}
 
+	public boolean repeteadWord(String word) {
+		List<Word> letterList = listWords(word);
+		for(Word w : letterList) {
+			if(w.getWord().equals(word)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	//public boolean deleteWord(String word) {
 	//	if (bt.deleteNode(bt.findFather(word)).getWord().equals(word)) {
 	//		return true;
