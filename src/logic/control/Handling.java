@@ -231,7 +231,15 @@ public class Handling {
 		}
 		return null;
 	}
-
+	public Word takeWord(String word) {
+		List<Word> list = listWords(word);
+		for(Word w:list) {
+			if(w.getWord().equals(word)){
+				return w;
+			}
+		}
+		return null;
+	}
 	public String searchTranslate(String word) {
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
 			return a.findFather(word).getWord().getTranslate();
@@ -492,11 +500,88 @@ public class Handling {
 		}
 		return false;
 	}
-	//public boolean deleteWord(String word) {
-	//	if (bt.deleteNode(bt.findFather(word)).getWord().equals(word)) {
-	//		return true;
-	//	}
-	//	return false;
-	//}
+	
+	public boolean deleteWord(String word) {
+		if (a.deleteNode(a.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (b.deleteNode(b.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (c.deleteNode(c.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (d.deleteNode(d.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (e.deleteNode(e.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (f.deleteNode(f.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (g.deleteNode(g.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (h.deleteNode(h.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (i.deleteNode(i.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (j.deleteNode(j.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (k.deleteNode(k.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (l.deleteNode(l.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (m.deleteNode(m.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (n.deleteNode(n.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (o.deleteNode(o.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (p.deleteNode(p.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (q.deleteNode(q.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (r.deleteNode(r.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (s.deleteNode(s.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (t.deleteNode(t.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (u.deleteNode(u.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (v.deleteNode(v.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (w.deleteNode(w.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (x.deleteNode(x.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (y.deleteNode(y.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		if (z.deleteNode(z.findFather(word)).getWord().equals(word)) {
+			return true;
+		}
+		
+		return false;
+	}
 
 }

@@ -133,9 +133,9 @@ public class BinaryTree<T> {
 	    		deleteLeaf(node);
 	    	}else {
 	    		if(node.getLeft() != null && node.getRight() != null ) {
-	    			deleteWithSons(node);
+	    			deleteWithSons(this.root,node.getWord());
 	    		}else {
-	    			deleteWithSon(node);
+	    			deleteWithSon(this.root,node);
 	    		}
 	    		
 	    	}
@@ -155,14 +155,51 @@ public class BinaryTree<T> {
 	        return null;
 	    }
 
-	    private Word deleteWithSon(TreeNode<Word> node){
-
-	        return node.getWord();
+	    private TreeNode<Word> deleteWithSon(TreeNode<Word> root,TreeNode<Word> node){
+	    	if(root == null) {
+	    		return root;
+	    	}
+	    	if(node.getWord().getWord().compareTo(root.getWord().getWord())<0) {
+	    		root.setLeft(deleteWithSon(root.getLeft(),node));
+	    	}else if(node.getWord().getWord().compareTo(root.getWord().getWord())>0){
+	    		root.setRight(deleteWithSon(root.getRight(), node));
+	    	}else {
+	    		if(root.getLeft().equals(null)) {
+	    			return root.getRight();
+	    		}else if(root.getRight().equals(null)) {
+	    			return root.getLeft();
+	    		}
+	    	}
+	        return root;
 	    }
 
-	    private Word deleteWithSons(TreeNode<Word> node){
-
-	        return node.getWord();
+	    private TreeNode<Word>  deleteWithSons(TreeNode<Word> root,Word node){
+	    	if(root == null) {
+	    		return root;
+	    	}
+	    	if(node.getWord().compareTo(root.getWord().getWord())<0) {
+	    		root.setLeft(deleteWithSons(root.getLeft(), node));
+	    	}else if(node.getWord().compareTo(root.getWord().getWord())>0) {
+	    		root.setRight(deleteWithSons(root.getRight(),node));
+	    	}else {
+	    		if(root.getLeft().equals(null)) {
+	    			return root.getRight();
+	    		}else if(root.getRight().equals(null)) {
+	    			return root.getLeft();
+	    		}
+	    		root.setWord(minValue(root.getRight()));
+	    		root.setRight(deleteWithSons(root.getRight(), root.getWord()));
+	    	}
+	        return root;
+	    }
+	    
+	    private Word minValue(TreeNode<Word> root) {
+	    	Word minV = root.getWord();
+	    	while(root.getLeft().equals(null)) {
+	    		minV = root.getLeft().getWord();
+	    		root = root.getLeft();
+	    	}
+	    	return minV;
 	    }
 
 		public boolean updateWord(TreeNode<Word> wordNode,Word word) {
