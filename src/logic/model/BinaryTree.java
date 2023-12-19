@@ -30,9 +30,9 @@ public class BinaryTree<T> {
 	        if (currently == null) {
 	        	return null;
 	        }
-
+	        
 	        if (currently.getWord().getWord().equals(word)) {
-	            return currently;
+	            return nodeFather;
 	        }
 
 	        TreeNode<Word> nodeFound = findFatherRecursive(currently.getLeft(), word, currently);
@@ -43,6 +43,31 @@ public class BinaryTree<T> {
 
 	        return findFatherRecursive(currently.getRight(), word, currently);
 	    }
+	    
+	    
+	    public TreeNode<Word> findNode(String word) {
+	        return findNodeRecursive(root, word, null);
+	    }
+
+	    private TreeNode<Word> findNodeRecursive(TreeNode<Word> currently, String word, TreeNode<Word> nodeFather) {
+	        if (currently == null) {
+	        	return null;
+	        }
+
+	        if (currently.getWord().getWord().equals(word)) {
+	            return currently;
+	        }
+
+	        TreeNode<Word> nodeFound = findNodeRecursive(currently.getLeft(), word, currently);
+
+	        if (nodeFound != null) {
+	            return nodeFound;
+	        }
+
+	        return findNodeRecursive(currently.getRight(), word, currently);
+	    }
+	    
+	    
 	    public void addNode( Word info ){
 	        if( isEmpty()){
 	            root = new TreeNode<>(info);
@@ -117,7 +142,7 @@ public class BinaryTree<T> {
 	    }
 
 	    private Word deleteLeaf( TreeNode<Word> node ){
-	    	TreeNode<Word> newNode = findFather(node.getWord().getWord());
+	    	TreeNode<Word> newNode = findNode(node.getWord().getWord());
 	    	if(newNode.getLeft().getWord().equals(node.getWord())) {
 	    		newNode.setLeft(null);
 	    		return node.getWord();
@@ -141,13 +166,16 @@ public class BinaryTree<T> {
 
 		public boolean updateWord(TreeNode<Word> wordNode,Word word) {
 			TreeNode<Word> newNode = new TreeNode<Word>(word);
-			if(findFather(wordNode.getWord().getWord()).getWord().getWord().compareTo(word.getWord()) < 0) {
+			if(findFather(wordNode.getWord().getWord()).getWord().getWord().equals(null)){
+				System.out.println("Nodo no hallado");
+			}else if(findNode(wordNode.getWord().getWord()).getWord().getWord().compareTo(word.getWord()) < 0) {
 				if(wordNode.getLeft() != null) {
 					newNode.setLeft(wordNode.getLeft());
 				}
 				if(wordNode.getRight() != null) {
 					newNode.setRight(wordNode.getRight());
 				}
+				deleteLeaf(wordNode);
 				findFather(wordNode.getWord().getWord()).setLeft(newNode);
 				return true;
 			}else {
@@ -160,6 +188,6 @@ public class BinaryTree<T> {
 				findFather(wordNode.getWord().getWord()).setRight(newNode);
 				return true;
 			}
-
+			return false;
 		}
 }

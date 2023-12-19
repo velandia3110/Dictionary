@@ -33,13 +33,13 @@ public class JFMain extends JFrame implements ActionListener{
 			
 			lblTitle = new JLabel();
 			pnlBackground = new JPanel();
+
 			btnAdd = new JButton();
 			btnSearch = new JButton();
 			btnModify = new JButton();
 			btnDelete = new JButton();
 			btnGetListChar = new JButton();
 			btnGetOrderList = new JButton();
-			
 			
 			createHead();
 			createBackground();
@@ -89,7 +89,6 @@ public class JFMain extends JFrame implements ActionListener{
 		btnGetOrderList.setText("OBTENER LISTA ORDENADA");
 		btnGetOrderList.setBounds(280,32,200,50);
 	}
-
 
 	private void createBackground() {
 		pnlBackground.setLayout(null);
