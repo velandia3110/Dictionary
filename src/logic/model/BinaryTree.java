@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class BinaryTree {
+public class BinaryTree<T> {
 	private Comparator<Word> comparator;
 
 	private List<Word> list;
@@ -22,6 +22,28 @@ public class BinaryTree {
 	        return root == null;
 	    }
 
+	 public TreeNode<Word> findFather(String word) {
+	        return findFatherRecursive(root, word, null);
+	    }
+
+	    // Método recursivo para realizar la búsqueda
+	    private TreeNode<Word> findFatherRecursive(TreeNode<Word> currently, String word, TreeNode<Word> nodeFather) {
+	        if (currently == null) {
+	        	return null;
+	        }
+
+	        if (currently.getWord().getWord().equals(word)) {
+	            return currently;
+	        }
+
+	        TreeNode<Word> nodeFound = findFatherRecursive(currently.getLeft(), word, currently);
+
+	        if (nodeFound != null) {
+	            return nodeFound;
+	        }
+
+	        return findFatherRecursive(currently.getRight(), word, currently);
+	    }
 	    public void addNode( Word info ){
 	        if( isEmpty()){
 	            root = new TreeNode<>(info);

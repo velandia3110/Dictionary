@@ -21,7 +21,6 @@ class HandlingTest {
 	@Test
 	void test() {
 		setup();
-		h.findWord(new TreeNode(), null)
 	}
 
 }
