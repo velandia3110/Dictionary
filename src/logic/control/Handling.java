@@ -23,7 +23,6 @@ public class Handling {
 	private BinaryTree<Word> l;
 	private BinaryTree<Word> m;
 	private BinaryTree<Word> n;
-	private BinaryTree<Word> ñ;
 	private BinaryTree<Word> o;
 	private BinaryTree<Word> p;
 	private BinaryTree<Word> q;
@@ -52,7 +51,6 @@ public class Handling {
 		l = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		m = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		n = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
-		ñ = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		o = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		p = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		q = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
@@ -111,9 +109,7 @@ public class Handling {
 		if (word.getWord().charAt(0) == 'n' || word.getWord().charAt(0) == 'N') {
 			this.n.addNode(word);
 		}
-		if (word.getWord().charAt(0) == 'ñ' || word.getWord().charAt(0) == 'Ñ') {
-			this.ñ.addNode(word);
-		}
+		
 		if (word.getWord().charAt(0) == 'o' || word.getWord().charAt(0) == 'O') {
 			this.o.addNode(word);
 		}
@@ -155,85 +151,83 @@ public class Handling {
 
 	public String searchMeaning(String word) {
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
-			return a.findFather(word).getWord().getDescription();
+			return a.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'b' || word.charAt(0) == 'B') {
-			return b.findFather(word).getWord().getDescription();
+			return b.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'c' || word.charAt(0) == 'C') {
-			return c.findFather(word).getWord().getDescription();
+			return c.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'd' || word.charAt(0) == 'D') {
-			return d.findFather(word).getWord().getDescription();
+			return d.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'e' || word.charAt(0) == 'E') {
-			return e.findFather(word).getWord().getDescription();
+			return e.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'f' || word.charAt(0) == 'F') {
-			return f.findFather(word).getWord().getDescription();
+			return f.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'g' || word.charAt(0) == 'G') {
-			return g.findFather(word).getWord().getDescription();
+			return g.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'h' || word.charAt(0) == 'H') {
-			return h.findFather(word).getWord().getDescription();
+			return h.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'i' || word.charAt(0) == 'I') {
-			return i.findFather(word).getWord().getDescription();
+			return i.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'j' || word.charAt(0) == 'J') {
-			return j.findFather(word).getWord().getDescription();
+			return j.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'k' || word.charAt(0) == 'K') {
-			return k.findFather(word).getWord().getDescription();
+			return k.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'l' || word.charAt(0) == 'L') {
-			return l.findFather(word).getWord().getDescription();
+			return l.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'm' || word.charAt(0) == 'M') {
-			return m.findFather(word).getWord().getDescription();
+			return m.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
-			return n.findFather(word).getWord().getDescription();
+			return n.findNode(word).getWord().getDescription();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.findFather(word).getWord().getDescription();
-		}
+		
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
-			return o.findFather(word).getWord().getDescription();
+			return o.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'p' || word.charAt(0) == 'P') {
-			return p.findFather(word).getWord().getDescription();
+			return p.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'q' || word.charAt(0) == 'Q') {
-			return q.findFather(word).getWord().getDescription();
+			return q.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'r' || word.charAt(0) == 'R') {
-			return r.findFather(word).getWord().getDescription();
+			return r.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 's' || word.charAt(0) == 'S') {
-			return s.findFather(word).getWord().getDescription();
+			return s.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 't' || word.charAt(0) == 'T') {
-			return t.findFather(word).getWord().getDescription();
+			return t.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'u' || word.charAt(0) == 'U') {
-			return u.findFather(word).getWord().getDescription();
+			return u.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'v' || word.charAt(0) == 'V') {
-			return v.findFather(word).getWord().getDescription();
+			return v.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'w' || word.charAt(0) == 'W') {
-			return w.findFather(word).getWord().getDescription();
+			return w.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'x' || word.charAt(0) == 'X') {
-			return x.findFather(word).getWord().getDescription();
+			return x.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'y' || word.charAt(0) == 'Y') {
-			return y.findFather(word).getWord().getDescription();
+			return y.findNode(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'z' || word.charAt(0) == 'Z') {
-			return z.findFather(word).getWord().getDescription();
+			return z.findNode(word).getWord().getDescription();
 		}
 		return null;
 	}
@@ -281,9 +275,7 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return n.findFather(word).getWord().getTranslate();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.findFather(word).getWord().getTranslate();
-		}
+		
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return o.findFather(word).getWord().getTranslate();
 		}
@@ -367,9 +359,7 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return listTree = n.listPresort();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return listTree = ñ.listPresort();
-		}
+		
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return listTree = o.listPresort();
 		}
@@ -453,9 +443,7 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return n.updateWord(n.findNode(word), wordUpdate);
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.updateWord(ñ.findNode(word), wordUpdate);
-		}
+		
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return o.updateWord(o.findNode(word), wordUpdate);
 		}
