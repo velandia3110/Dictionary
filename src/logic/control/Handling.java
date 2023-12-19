@@ -9,7 +9,6 @@ import logic.model.Word;
 
 public class Handling {
 	private List<Word> listTree;
-	private BinaryTree<Word> bt;
 	private BinaryTree<Word> a;
 	private BinaryTree<Word> b;
 	private BinaryTree<Word> c;
@@ -24,7 +23,7 @@ public class Handling {
 	private BinaryTree<Word> l;
 	private BinaryTree<Word> m;
 	private BinaryTree<Word> n;
-	private BinaryTree<Word> ñ;
+	private BinaryTree<Word> Ã±;
 	private BinaryTree<Word> o;
 	private BinaryTree<Word> p;
 	private BinaryTree<Word> q;
@@ -39,7 +38,6 @@ public class Handling {
 	private BinaryTree<Word> z;
 
 	public Handling() {
-		bt = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		a = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		b = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		c = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
@@ -54,7 +52,7 @@ public class Handling {
 		l = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		m = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		n = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
-		ñ = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
+		Ã± = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		o = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		p = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		q = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
@@ -113,8 +111,8 @@ public class Handling {
 		if (word.getWord().charAt(0) == 'n' || word.getWord().charAt(0) == 'N') {
 			this.n.addNode(word);
 		}
-		if (word.getWord().charAt(0) == 'ñ' || word.getWord().charAt(0) == 'Ñ') {
-			this.ñ.addNode(word);
+		if (word.getWord().charAt(0) == 'Ã±' || word.getWord().charAt(0) == 'Ã‘') {
+			this.Ã±.addNode(word);
 		}
 		if (word.getWord().charAt(0) == 'o' || word.getWord().charAt(0) == 'O') {
 			this.o.addNode(word);
@@ -198,8 +196,8 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return n.findFather(word).getWord().getDescription();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.findFather(word).getWord().getDescription();
+		if (word.charAt(0) == 'Ã±' || word.charAt(0) == 'Ã‘') {
+			return Ã±.findFather(word).getWord().getDescription();
 		}
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return o.findFather(word).getWord().getDescription();
@@ -283,8 +281,8 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return n.findFather(word).getWord().getTranslate();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.findFather(word).getWord().getTranslate();
+		if (word.charAt(0) == 'Ã±' || word.charAt(0) == 'Ã‘') {
+			return Ã±.findFather(word).getWord().getTranslate();
 		}
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return o.findFather(word).getWord().getTranslate();
@@ -369,8 +367,8 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return listTree = n.listPresort();
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return listTree = ñ.listPresort();
+		if (word.charAt(0) == 'Ã±' || word.charAt(0) == 'Ã‘') {
+			return listTree = Ã±.listPresort();
 		}
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return listTree = o.listPresort();
@@ -455,8 +453,8 @@ public class Handling {
 		if (word.charAt(0) == 'n' || word.charAt(0) == 'N') {
 			return n.updateWord(n.findNode(word), wordUpdate);
 		}
-		if (word.charAt(0) == 'ñ' || word.charAt(0) == 'Ñ') {
-			return ñ.updateWord(ñ.findNode(word), wordUpdate);
+		if (word.charAt(0) == 'Ã±' || word.charAt(0) == 'Ã‘') {
+			return Ã±.updateWord(Ã±.findNode(word), wordUpdate);
 		}
 		if (word.charAt(0) == 'o' || word.charAt(0) == 'O') {
 			return o.updateWord(o.findNode(word), wordUpdate);
@@ -497,11 +495,11 @@ public class Handling {
 		return false;
 	}
 
-	public boolean deleteWord(String word) {
-		if (bt.deleteNode(bt.findFather(word)).getWord().equals(word)) {
-			return true;
-		}
-		return false;
-	}
+	//public boolean deleteWord(String word) {
+	//	if (bt.deleteNode(bt.findFather(word)).getWord().equals(word)) {
+	//		return true;
+	//	}
+	//	return false;
+	//}
 
 }

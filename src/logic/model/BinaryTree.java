@@ -51,6 +51,7 @@ public class BinaryTree<T> {
 
 	    private TreeNode<Word> findNodeRecursive(TreeNode<Word> currently, String word, TreeNode<Word> nodeFather) {
 	        if (currently == null) {
+	        	System.out.println("aaaaa");
 	        	return null;
 	        }
 
@@ -71,7 +72,7 @@ public class BinaryTree<T> {
 	    public void addNode( Word info ){
 	        if( isEmpty()){
 	            root = new TreeNode<>(info);
-	            System.out.println("Palabra añadida");
+	            System.out.println("Palabra aï¿½adida");
 	        }else{
 	            TreeNode<Word> aux = root;
 	            TreeNode<Word> ant = null;
@@ -81,10 +82,10 @@ public class BinaryTree<T> {
 	            }
 	            if( comparator.compare( info, ant.getWord() ) < 0 ){
 	                ant.setLeft( new TreeNode<>( info ) );
-	                System.out.println("Palabra añadida");
+	                System.out.println("Palabra aï¿½adida");
 	            }else{
 	                ant.setRight( new TreeNode<>( info ) );
-	                System.out.println("Palabra añadida");
+	                System.out.println("Palabra aï¿½adida");
 	            }
 	        }
 	    }

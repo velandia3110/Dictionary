@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import logic.control.Handling;
+
 
 public class JFMain extends JFrame implements ActionListener{
 	
@@ -22,6 +24,7 @@ public class JFMain extends JFrame implements ActionListener{
 	private JButton btnGetListChar;
 	private JButton btnGetOrderList;
 	
+	private Handling hndl;
 	
 	public JFMain() {
 					
@@ -30,6 +33,8 @@ public class JFMain extends JFrame implements ActionListener{
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			setResizable(false);
 			this.getContentPane().setBackground(Color.white);
+			
+			hndl = new Handling();
 			
 			lblTitle = new JLabel();
 			pnlBackground = new JPanel();
@@ -55,6 +60,7 @@ public class JFMain extends JFrame implements ActionListener{
 			pnlBackground.add(btnGetOrderList);
 			
 			setVisible(true);
+			setLocationRelativeTo(null);
 	}
 
 
@@ -63,6 +69,7 @@ public class JFMain extends JFrame implements ActionListener{
 		btnAdd.setForeground(Color.white);
 		btnAdd.setText("AGREGAR PALABRA");
 		btnAdd.setBounds(20,110,200,50);
+		
 		
 		btnSearch.setBackground(Color.decode("#0070C0"));
 		btnSearch.setForeground(Color.white);
@@ -88,6 +95,13 @@ public class JFMain extends JFrame implements ActionListener{
 		btnGetOrderList.setForeground(Color.decode("#0070C0"));
 		btnGetOrderList.setText("OBTENER LISTA ORDENADA");
 		btnGetOrderList.setBounds(280,32,200,50);
+		
+		btnAdd.addActionListener(this);
+		btnSearch.addActionListener(this);
+		btnModify.addActionListener(this);
+		btnDelete.addActionListener(this);
+		btnGetListChar.addActionListener(this);
+		btnGetOrderList.addActionListener(this);
 	}
 
 	private void createBackground() {
@@ -103,10 +117,23 @@ public class JFMain extends JFrame implements ActionListener{
 		lblTitle.setIcon(new ImageIcon("Resource/TilteDictionary.png"));	
 	}
 
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == btnAdd) {
+			new JFAdd(hndl, this);
+			this.setVisible(false);
+		} else if (e.getSource() == btnSearch) {
+			new JFSearch(hndl,this);
+			this.dispose();
+		} else if (e.getSource() == btnModify) {
+			System.out.println("Botón MODIFICAR PALABRA presionado");
+		} else if (e.getSource() == btnDelete) {
+			System.out.println("Botón ELIMINAR PALABRA presionado");
+		} else if (e.getSource() == btnGetListChar) {
+			System.out.println("Botón OBTENER LISTA POR LETRA presionado");
+		} else if (e.getSource() == btnGetOrderList) {
+			System.out.println("Botón OBTENER LISTA ORDENADA presionado");
+		}
 		
 	}
 }
