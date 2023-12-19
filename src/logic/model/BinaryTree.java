@@ -26,7 +26,6 @@ public class BinaryTree<T> {
 	        return findFatherRecursive(root, word, null);
 	    }
 
-	    // Método recursivo para realizar la búsqueda
 	    private TreeNode<Word> findFatherRecursive(TreeNode<Word> currently, String word, TreeNode<Word> nodeFather) {
 	        if (currently == null) {
 	        	return null;
@@ -100,63 +99,34 @@ public class BinaryTree<T> {
 	        return list;
 	    }
 
-	    public TreeNode<Word> findNode(Word node){
-
-	        return null;
+	    private boolean isLeaf(TreeNode<Word> node) {
+	    	return node.getLeft() == null && node.getRight() == null;
 	    }
-
-	    public int heightTree(){
-
-	        return 0;
-	    }
-
-	    public int heightNode( TreeNode<Word> node){
-
-	        return 0;
-	    }
-
-	    private int height ( TreeNode<Word> node ){
-
-	        return 0;
-	    }
-
-	    public int weightTree(){
-
-	        return 0;
-	    }
-
-	    private int weight( TreeNode<Word> node){
-
-	        return 0;
-	    }
-	    public int levelNode( TreeNode<Word> node){
-
-	        return 0;
-	    }
-
-	    public boolean isLeaf( TreeNode<Word> node){
-
-	        return false;
-	    }
-
-	    public int gradeNode( TreeNode<Word> node ){
-
-	        return 0;
-	    }
-
-	    public TreeNode<Word> findFather( TreeNode<Word> node ){
-
-	        return null;
-	    }
-
 	    public Word deleteNode( TreeNode<Word> node ){
-
+	    	if(isLeaf(node)) {
+	    		deleteLeaf(node);
+	    	}else {
+	    		if(node.getLeft() != null && node.getRight() != null ) {
+	    			deleteWithSons(node);
+	    		}else {
+	    			deleteWithSon(node);
+	    		}
+	    		
+	    	}
 	        return null;
 	    }
 
 	    private Word deleteLeaf( TreeNode<Word> node ){
-
-	        return node.getWord();
+	    	TreeNode<Word> newNode = findFather(node.getWord().getWord());
+	    	if(newNode.getLeft().getWord().equals(node.getWord())) {
+	    		newNode.setLeft(null);
+	    		return node.getWord();
+	    	}
+	    	if(newNode.getRight().equals(node)) {
+	    		newNode.setRight(null);
+	    		return node.getWord();
+	    	}
+	        return null;
 	    }
 
 	    private Word deleteWithSon(TreeNode<Word> node){
@@ -168,4 +138,28 @@ public class BinaryTree<T> {
 
 	        return node.getWord();
 	    }
+
+		public boolean updateWord(TreeNode<Word> wordNode,Word word) {
+			TreeNode<Word> newNode = new TreeNode<Word>(word);
+			if(findFather(wordNode.getWord().getWord()).getWord().getWord().compareTo(word.getWord()) < 0) {
+				if(wordNode.getLeft() != null) {
+					newNode.setLeft(wordNode.getLeft());
+				}
+				if(wordNode.getRight() != null) {
+					newNode.setRight(wordNode.getRight());
+				}
+				findFather(wordNode.getWord().getWord()).setLeft(newNode);
+				return true;
+			}else {
+				if(wordNode.getLeft() != null) {
+					newNode.setLeft(wordNode.getLeft());
+				}
+				if(wordNode.getRight() != null) {
+					newNode.setRight(wordNode.getRight());
+				}
+				findFather(wordNode.getWord().getWord()).setRight(newNode);
+				return true;
+			}
+
+		}
 }
