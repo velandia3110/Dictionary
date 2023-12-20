@@ -72,7 +72,6 @@ public class BinaryTree<T> {
 	    public void addNode( Word info ){
 	        if( isEmpty()){
 	            root = new TreeNode<>(info);
-	            System.out.println("Palabra a�adida");
 	        }else{
 	            TreeNode<Word> aux = root;
 	            TreeNode<Word> ant = null;

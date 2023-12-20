@@ -130,6 +130,8 @@ public class JFMain extends JFrame implements ActionListener{
 		} else if (e.getSource() == btnDelete) {
 			System.out.println("Botón ELIMINAR PALABRA presionado");
 		} else if (e.getSource() == btnGetListChar) {
+			new JFListWord(hndl, this);
+			this.setVisible(false);
 			System.out.println("Botón OBTENER LISTA POR LETRA presionado");
 		} else if (e.getSource() == btnGetOrderList) {
 			System.out.println("Botón OBTENER LISTA ORDENADA presionado");
