@@ -3,6 +3,9 @@ package view.gui;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,7 +22,7 @@ import javax.swing.table.TableModel;
 import logic.control.Handling;
 import logic.model.Word;
 
-public class JFListWord extends JFrame implements ActionListener {
+public class JFListAll extends JFrame implements ActionListener {
 
 	private Handling hndl;
 
@@ -37,7 +40,7 @@ public class JFListWord extends JFrame implements ActionListener {
 
 	private JFMain vMain;
 
-	public JFListWord(Handling hand, JFMain main) {
+	public JFListAll(Handling hand, JFMain main) {
 		setSize(515, 400);
 		setLayout(null);
 
@@ -66,14 +69,13 @@ public class JFListWord extends JFrame implements ActionListener {
 		createLabel();
 		createButton();
 		createTextBox();
-		
+		createTable();
 		
 		add(lblTitle);
 		add(pnlBackground);
 		add(lblWord);
 		add(txtWord);
 		add(JSPTable);
-		add(btnSearch);
 		pnlBackground.add(btnBack);
 		
 
@@ -109,16 +111,19 @@ public class JFListWord extends JFrame implements ActionListener {
 		String head[] = { "Nombre", "Traduccion", "Descripcion"};
 		model.setColumnIdentifiers(head);
 		Object[] fila;
-		
-		for (Word d : hndl.listWords(txtWord.getText())) {
+		HashMap<String,List<Word>>  fullList = hndl.getOrderList();
+		for(Map.Entry<String,List<Word>> listM: fullList.entrySet()) {
+			for (Word d : listM.getValue()) {
 
-			fila = new Object[3];
-			fila[0] = d.getWord();
-			fila[1] = d.getTranslate();
-			fila[2] = d.getDescription();
-			model.addRow(fila);
+				fila = new Object[3];
+				fila[0] = d.getWord();
+				fila[1] = d.getTranslate();
+				fila[2] = d.getDescription();
+				model.addRow(fila);
 
+			}
 		}
+		
 		return model;
 	}
 
@@ -166,9 +171,8 @@ public class JFListWord extends JFrame implements ActionListener {
 			vMain.setVisible(true);
 			this.setVisible(false);
 
-		}else if (e.getSource() == btnSearch) {
-			createTable();
 		}
 	}
 
 }
+

@@ -133,8 +133,8 @@ public class JFMain extends JFrame implements ActionListener{
 			new JFListWord(hndl, this);
 			this.setVisible(false);
 		} else if (e.getSource() == btnGetOrderList) {
-			System.out.println("Botón OBTENER LISTA ORDENADA presionado");
+			new JFListAll(hndl, this);
+			this.setVisible(false);
 		}
-		
 	}
 }

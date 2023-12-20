@@ -6,8 +6,11 @@ import java.util.List;
 import logic.model.BinaryTree;
 import logic.model.TreeNode;
 import logic.model.Word;
+import java.util.HashMap;
+
 
 public class Handling {
+	
 	private List<Word> listTree;
 	private BinaryTree<Word> a;
 	private BinaryTree<Word> b;
@@ -345,6 +348,45 @@ public class Handling {
 		}
 		return null;
 	}
+	
+	/**
+	 * Crea un hasmap con todas las listas de letr
+	 * @return Un hashMap que cintiene las listas de palabras por letraas
+	 */
+	public HashMap<String,List<Word>> getOrderList(){
+		
+		HashMap<String,List<Word>>  fullList = new HashMap<String,List<Word>> ();
+		fullList.put("a", listWords("a"));
+		fullList.put("b", listWords("b"));
+		fullList.put("c", listWords("c"));
+		fullList.put("d", listWords("d"));
+		fullList.put("e", listWords("e"));
+		fullList.put("f", listWords("f"));
+		fullList.put("g", listWords("g"));
+		fullList.put("h", listWords("h"));
+		fullList.put("i", listWords("i"));
+		fullList.put("j", listWords("j"));
+		fullList.put("k", listWords("k"));
+		fullList.put("l", listWords("l"));
+		fullList.put("m", listWords("m"));
+		fullList.put("n", listWords("n"));
+		fullList.put("o", listWords("o"));
+		fullList.put("p", listWords("p"));
+		fullList.put("q", listWords("q"));
+		fullList.put("r", listWords("r"));
+		fullList.put("s", listWords("s"));
+		fullList.put("t", listWords("t"));
+		fullList.put("u", listWords("u"));
+		fullList.put("v", listWords("v"));
+		fullList.put("w", listWords("w"));
+		fullList.put("x", listWords("x"));
+		fullList.put("y", listWords("y"));
+		fullList.put("z", listWords("z"));
+		
+		return fullList;
+		
+	}
+	
 	/**
 	 * Agrega objetos de tipo Word según la letra que se pasa por parametro
 	 * @param word Cadena de carácteres
