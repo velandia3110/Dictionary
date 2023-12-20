@@ -129,12 +129,13 @@ public class JFListAll extends JFrame implements ActionListener {
 
 	private void createTextBox() {
 		txtWord.setBounds(200,110,70,30);
+		txtWord.setVisible(false);
 		
 	}
 
 	private void createLabel() {
 		lblWord.setBounds(20, 100, 200, 50);
-		lblWord.setText("INGRESE LA CONSULTA");
+		lblWord.setText("TABLA ORDENADA");
 
 	}
 
@@ -144,9 +145,6 @@ public class JFListAll extends JFrame implements ActionListener {
 		btnBack.setForeground(Color.decode("#0070C0"));
 		btnBack.setText("VOLVER");
 		btnBack.setBounds(20, 15, 200, 50);
-		
-		btnSearch.setBounds(350, 110, 100, 30);
-		btnSearch.setText("BUSCAR");
 		
 		btnBack.addActionListener(this);
 		btnSearch.addActionListener(this);
