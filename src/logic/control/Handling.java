@@ -36,6 +36,9 @@ public class Handling {
 	private BinaryTree<Word> y;
 	private BinaryTree<Word> z;
 
+	/**
+	 * Se inicializan los arboles necesarios para el diccionario
+	 */
 	public Handling() {
 		a = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 		b = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
@@ -65,7 +68,11 @@ public class Handling {
 		z = new BinaryTree<>((word1, word2) -> word1.getWord().compareTo(word2.getWord()));
 	}
 
-
+	/**
+	 * Metodo que añade las palabras al diccionario
+	 * @param word Objeto Word que lleva la información necesaria
+	 * al diccionario
+	 */
 	public void addWord(Word word) {
 		if (word.getWord().charAt(0) == 'a' || word.getWord().charAt(0) == 'A') {
 			this.a.addNode(word);
@@ -148,7 +155,12 @@ public class Handling {
 		}
 
 	}
-
+	/**
+	 * Metodo que devuelve una cadena de carácteres que es la descripción
+	 * de cada palabra
+	 * @param word Cadena de carácteres
+	 * @return retorna una cadena de caracteres
+	 */
 	public String searchMeaning(String word) {
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
 			return a.findNode(word).getWord().getDescription();
@@ -231,6 +243,11 @@ public class Handling {
 		}
 		return null;
 	}
+	/**
+	 * Crea un listado de objetos Word según la primera letra
+	 * @param word Cadena de carácteres
+	 * @return retorna un objeto de tipo Word
+	 */
 	public Word takeWord(String word) {
 		List<Word> list = listWords(word);
 		for(Word w:list) {
@@ -240,6 +257,12 @@ public class Handling {
 		}
 		return null;
 	}
+	/**
+	 * Busca y retorna la traducción de una palabra en específico
+	 * @param word Cadena de carácteres
+	 * @return retorna una cadena de texto que contiene la
+	 * traducción de la palabra a buscar
+	 */
 	public String searchTranslate(String word) {
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
 			return a.findFather(word).getWord().getTranslate();
@@ -322,7 +345,11 @@ public class Handling {
 		}
 		return null;
 	}
-
+	/**
+	 * Agrega objetos de tipo Word según la letra que se pasa por parametro
+	 * @param word Cadena de carácteres
+	 * @return retorna una lista de objetos Word
+	 */
 	public List<Word> listWords(String word) {
 		
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
@@ -406,7 +433,12 @@ public class Handling {
 		}
 		return null;
 	}
-
+	/**
+	 * Modifica los objetos ya guardados
+	 * @param word Cadena de carácteres
+	 * @param wordUpdate Objeto Word que lleva la información necesaria
+	 * @return retorna un booleano según si se realizó la modificación
+	 */
 	public boolean modifyWord(String word, Word wordUpdate) {
 		
 		if (word.charAt(0) == 'a' || word.charAt(0) == 'A') {
@@ -490,7 +522,12 @@ public class Handling {
 		}
 		return false;
 	}
-
+	/**
+	 * Busca en un listado de palbras especifica la existencia de un
+	 * objeto de tipo Word
+	 * @param word Cadena de carácteres
+	 * @return retorna un booleano según si existe o no el objeto Word
+	 */
 	public boolean repeteadWord(String word) {
 		List<Word> letterList = listWords(word);
 		for(Word w : letterList) {
@@ -500,7 +537,11 @@ public class Handling {
 		}
 		return false;
 	}
-	
+	/**
+	 * Borra un nodo específico según si es una hoja, tiene un hijo o dos
+	 * @param word Cadena de carácteres
+	 * @return retorna un booleano según si es satisfactoria la eliminación del nodo
+	 */
 	public boolean deleteWord(String word) {
 		if (a.deleteNode(a.findFather(word)).getWord().equals(word)) {
 			return true;
