@@ -203,8 +203,12 @@ public class BinaryTree<T> {
 
 		public boolean updateWord(TreeNode<Word> wordNode,Word word) {
 			TreeNode<Word> newNode = new TreeNode<Word>(word);
-			if(findFather(wordNode.getWord().getWord()).getWord().getWord().equals(null)){
-				System.out.println("Nodo no hallado");
+			if(isEmpty()) {
+				root = newNode;
+				return true;
+			}else if(findFather(wordNode.getWord().getWord()) == null){
+				root = newNode;
+				return true;
 			}else if(findNode(wordNode.getWord().getWord()).getWord().getWord().compareTo(word.getWord()) < 0) {
 				if(wordNode.getLeft() != null) {
 					newNode.setLeft(wordNode.getLeft());
@@ -222,9 +226,9 @@ public class BinaryTree<T> {
 				if(wordNode.getRight() != null) {
 					newNode.setRight(wordNode.getRight());
 				}
+
 				findFather(wordNode.getWord().getWord()).setRight(newNode);
 				return true;
 			}
-			return false;
 		}
 }
