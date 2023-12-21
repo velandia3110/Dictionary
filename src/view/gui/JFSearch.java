@@ -135,7 +135,9 @@ public class JFSearch extends JFrame implements ActionListener{
 			if(hndl.takeWord(txtWord.getText().toUpperCase()) == null) {
 				JOptionPane.showMessageDialog(null, "Palabra no encontrada");
 			} else {
-				txtDescription.setText(hndl.searchMeaning(txtWord.getText().toUpperCase()));
+				Word wd = hndl.takeWord(txtWord.getText().toUpperCase());
+				String concatenate = "Palabra: "+ wd.getWord() + "\nTraducción: " + wd.getTranslate() + "\nDescripción: " + wd.getDescription();
+				txtDescription.setText(concatenate);
 			}
 			
 		}
